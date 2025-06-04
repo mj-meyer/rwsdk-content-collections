@@ -34,6 +34,9 @@
     "rwsdk": "0.0.88"
   },
   "devDependencies": {
+    "@content-collections/core": "^0.9.0",
+    "@content-collections/markdown": "^0.1.4",
+    "@content-collections/vite": "^0.2.4",
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
@@ -41,7 +44,8 @@
     "typescript": "^5.8.3",
     "vibe-rules": "^0.2.31",
     "vite": "^6.2.6",
-    "wrangler": "^4.16.0"
+    "wrangler": "^4.16.0",
+    "zod": "^3.25.49"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
