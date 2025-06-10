@@ -9,6 +9,7 @@ import { Session } from "./session/durableObject";
 import { type User, db, setupDb } from "@/db";
 import { env } from "cloudflare:workers";
 import { Blog } from "./app/pages/Blog";
+import { BlogPost } from "./app/pages/BlogPost";
 export { SessionDurableObject } from "./session/durableObject";
 
 export type AppContext = {
@@ -49,6 +50,7 @@ export default defineApp([
   render(Document, [
     route("/", () => new Response("Hello, World!")),
     route("/blog", Blog),
+    route("/blog/:slug", BlogPost),
     route("/protected", [
       ({ ctx }) => {
         if (!ctx.user) {

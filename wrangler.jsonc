@@ -3,39 +3,35 @@
   "name": "rwsdk-content-collections",
   "main": "src/worker.tsx",
   "compatibility_date": "2024-09-23",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "binding": "ASSETS"
+    "binding": "ASSETS",
   },
   "observability": {
-    "enabled": true
+    "enabled": true,
   },
   "durable_objects": {
     "bindings": [
       {
         "name": "SESSION_DURABLE_OBJECT",
-        "class_name": "SessionDurableObject"
-      }
-    ]
+        "class_name": "SessionDurableObject",
+      },
+    ],
   },
   "vars": {
-    "WEBAUTHN_APP_NAME": "rwsdk-content-collections"
+    "WEBAUTHN_APP_NAME": "rwsdk-content-collections",
   },
   "migrations": [
     {
       "tag": "v1",
-      "new_sqlite_classes": [
-        "SessionDurableObject"
-      ]
-    }
+      "new_sqlite_classes": ["SessionDurableObject"],
+    },
   ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "rwsdk-content-collections-naughty-spider",
-      "database_id": "452ec9db-b5ae-44c2-8676-cdfbc94bdc34"
-    }
-  ]
+      "database_id": "452ec9db-b5ae-44c2-8676-cdfbc94bdc34",
+    },
+  ],
 }
