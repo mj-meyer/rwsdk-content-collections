@@ -1,7 +1,7 @@
 import { allPosts } from "content-collections";
 import { RequestInfo } from "rwsdk/worker";
 
-export function BlogPost({ params }: RequestInfo) {
+export function BlogPost({ params, ctx }: RequestInfo) {
   const { slug } = params;
   const post = allPosts.find((p) => p._meta.path.replace(/\.md$/, "") === slug);
 
@@ -31,6 +31,52 @@ export function BlogPost({ params }: RequestInfo) {
         >
           ← Back to blog
         </a>
+      </main>
+    );
+  }
+
+  // Check if post is protected and user is not logged in
+  if (post.protected && !ctx.user) {
+    return (
+      <main
+        style={{
+          maxWidth: "800px",
+          margin: "0 auto",
+          padding: "40px 20px",
+          textAlign: "center",
+        }}
+      >
+        <h1 style={{ fontSize: "2rem", color: "#666" }}>Login Required</h1>
+        <p style={{ color: "#888", marginTop: "16px" }}>
+          This post requires you to be logged in to view it.
+        </p>
+        <div style={{ marginTop: "24px", display: "flex", gap: "16px", justifyContent: "center" }}>
+          <a
+            href="/user/login"
+            style={{
+              color: "#fff",
+              backgroundColor: "#0066cc",
+              textDecoration: "none",
+              fontSize: "1rem",
+              padding: "12px 24px",
+              borderRadius: "6px",
+              fontWeight: "500",
+            }}
+          >
+            Login
+          </a>
+          <a
+            href="/blog"
+            style={{
+              color: "#0066cc",
+              textDecoration: "none",
+              fontSize: "1rem",
+              padding: "12px 24px",
+            }}
+          >
+            ← Back to blog
+          </a>
+        </div>
       </main>
     );
   }

@@ -3,6 +3,7 @@ title: "The Day a Goat Hijacked Our Drone"
 summary: "When a curious goat hijacks a drone during a routine content collection trip, the ContentCrafter Inc. team turns the quirky mishap into a hilarious and captivating travelogue. Follow the Collectors' adventurous chase, the Validators' meticulous review, and the Transformers' creative magic in this lighthearted tale of unexpected content creation."
 date: 2024-09-25
 author: "Alex Johnson"
+protected: true
 ---
 
 It was supposed to be a routine day for the ContentCrafter Inc. team. The Collectors were off on another adventure, the Validators were ready with their magnifying glasses, and the Transformers had their creative juices flowing. Little did we know, a mischievous goat was about to turn our day upside down.

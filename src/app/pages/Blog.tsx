@@ -39,10 +39,16 @@ export function Blog() {
                       href={`/blog/${slug}`}
                       style={{ 
                         color: '#1a1a1a', 
-                        textDecoration: 'none'
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px'
                       }}
                     >
                       {post.title}
+                      {post.protected && (
+                        <span style={{ fontSize: '0.875rem', color: '#666' }}>🔒</span>
+                      )}
                     </a>
                   </h2>
                   
