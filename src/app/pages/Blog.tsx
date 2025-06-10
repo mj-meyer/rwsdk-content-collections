@@ -2,7 +2,7 @@ import { allPosts } from "content-collections";
 
 export function Blog() {
   return (
-    <main style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
       <header style={{ marginBottom: '48px', textAlign: 'center' }}>
         <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '16px', color: '#1a1a1a' }}>
           Blog Posts
@@ -93,6 +93,6 @@ export function Blog() {
             );
           })}
       </div>
-    </main>
+    </div>
   );
 }

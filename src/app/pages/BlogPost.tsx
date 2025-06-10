@@ -7,7 +7,7 @@ export function BlogPost({ params, ctx }: RequestInfo) {
 
   if (!post) {
     return (
-      <main
+      <div
         style={{
           maxWidth: "800px",
           margin: "0 auto",
@@ -31,14 +31,14 @@ export function BlogPost({ params, ctx }: RequestInfo) {
         >
           ← Back to blog
         </a>
-      </main>
+      </div>
     );
   }
 
   // Check if post is protected and user is not logged in
   if (post.protected && !ctx.user) {
     return (
-      <main
+      <div
         style={{
           maxWidth: "800px",
           margin: "0 auto",
@@ -77,12 +77,12 @@ export function BlogPost({ params, ctx }: RequestInfo) {
             ← Back to blog
           </a>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main style={{ maxWidth: "800px", margin: "0 auto", padding: "40px 20px" }}>
+    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "40px 20px" }}>
       <nav style={{ marginBottom: "32px" }}>
         <a
           href="/blog"
@@ -167,7 +167,7 @@ export function BlogPost({ params, ctx }: RequestInfo) {
           ← Back to all posts
         </a>
       </footer>
-    </main>
+    </div>
   );
 }
 

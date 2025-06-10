@@ -1,7 +1,8 @@
 import { defineApp, ErrorResponse } from "rwsdk/worker";
-import { route, render, prefix } from "rwsdk/router";
+import { route, render, prefix, layout } from "rwsdk/router";
 import { Document } from "@/app/Document";
-import { Home } from "@/app/pages/Home";
+import { Dashboard } from "@/app/pages/Dashboard";
+import { HomePage } from "@/app/pages/HomePage";
 import { setCommonHeaders } from "@/app/headers";
 import { userRoutes } from "@/app/pages/user/routes";
 import { sessions, setupSessionStore } from "./session/store";
@@ -10,6 +11,7 @@ import { type User, db, setupDb } from "@/db";
 import { env } from "cloudflare:workers";
 import { Blog } from "./app/pages/Blog";
 import { BlogPost } from "./app/pages/BlogPost";
+import { Layout } from "./app/Layout";
 export { SessionDurableObject } from "./session/durableObject";
 
 export type AppContext = {
@@ -48,20 +50,22 @@ export default defineApp([
     }
   },
   render(Document, [
-    route("/", () => new Response("Hello, World!")),
-    route("/blog", Blog),
-    route("/blog/:slug", BlogPost),
-    route("/protected", [
-      ({ ctx }) => {
-        if (!ctx.user) {
-          return new Response(null, {
-            status: 302,
-            headers: { Location: "/user/login" },
-          });
-        }
-      },
-      Home,
+    layout(Layout, [
+      route("/", HomePage),
+      route("/blog", Blog),
+      route("/blog/:slug", BlogPost),
+      route("/dashboard", [
+        ({ ctx }) => {
+          if (!ctx.user) {
+            return new Response(null, {
+              status: 302,
+              headers: { Location: "/user/login" },
+            });
+          }
+        },
+        Dashboard,
+      ]),
+      prefix("/user", userRoutes),
     ]),
-    prefix("/user", userRoutes),
   ]),
 ]);

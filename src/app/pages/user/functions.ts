@@ -85,8 +85,6 @@ export async function finishPasskeyRegistration(
     return false;
   }
 
-  await sessions.save(headers, { challenge: null });
-
   const user = await db.user.create({
     data: {
       username,
@@ -100,6 +98,12 @@ export async function finishPasskeyRegistration(
       publicKey: verification.registrationInfo.credential.publicKey,
       counter: verification.registrationInfo.credential.counter,
     },
+  });
+
+  // Log the user in after successful registration
+  await sessions.save(headers, {
+    userId: user.id,
+    challenge: null,
   });
 
   return true;
