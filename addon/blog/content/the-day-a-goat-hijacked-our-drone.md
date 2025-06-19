@@ -1,5 +1,5 @@
 ---
-title: "The Day a Goat Hijacked Our Drone"
+title: "The Day a Goat Hijacked Our Drone Test"
 summary: "When a curious goat hijacks a drone during a routine content collection trip, the ContentCrafter Inc. team turns the quirky mishap into a hilarious and captivating travelogue. Follow the Collectors' adventurous chase, the Validators' meticulous review, and the Transformers' creative magic in this lighthearted tale of unexpected content creation."
 date: 2024-09-25
 author: "Alex Johnson"

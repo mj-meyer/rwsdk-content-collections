@@ -9,8 +9,7 @@ import { sessions, setupSessionStore } from "./session/store";
 import { Session } from "./session/durableObject";
 import { type User, db, setupDb } from "@/db";
 import { env } from "cloudflare:workers";
-import { Blog } from "./app/pages/Blog";
-import { BlogPost } from "./app/pages/BlogPost";
+import { Blog, BlogPost } from "@/addon/blog/components";
 import { Layout } from "./app/Layout";
 export { SessionDurableObject } from "./session/durableObject";
 
